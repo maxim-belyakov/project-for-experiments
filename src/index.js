@@ -1,4 +1,12 @@
-import React, { Component } from "react"
+/*
+
+Challenge:
+1. Convert all 3 components to be class-based
+2. Fix the small bug
+
+*/
+
+import React from "react"
 import ReactDOM from "react-dom"
 
 // #1
@@ -6,7 +14,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header username="Maxi" />
                 <Greeting />
             </div>
         )
@@ -25,7 +33,7 @@ class Header extends React.Component {
 }
 
 // #3
-class Greeting extends Component {
+class Greeting extends React.Component {
     render() {
         const date = new Date()
         const hours = date.getHours()
@@ -41,7 +49,7 @@ class Greeting extends Component {
         return (
             <h1>Good {timeOfDay} to you, sir or madam!</h1>
         )
-    }
+    }    
 }
 
 ReactDOM.render(<App />, document.getElementById("root"))
