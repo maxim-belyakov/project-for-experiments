@@ -1,32 +1,16 @@
 import React from "react"
+import TodoItem from "./TodoItem"
+import todosData from "./todosData"
+import './index.css'
 
-// Given a stateless functional component, add state to it
-// state should have a property called `isLoggedIn` which is a boolean
-// (true if logged in, false if not)
-// Then, give your best shot at rendering the word "in" if the user is logged in
-// or "out" if the user is logged out.
-
-class App extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            isLoggedIn: true
-        }
-    }
+function App() {
+    const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
     
-    render() {
-        let wordDisplay
-        if (this.state.isLoggedIn === true) {
-            wordDisplay = "in"
-        } else {
-            wordDisplay = "out"
-        }
-        return (
-            <div>
-                <h1>You are currently logged {wordDisplay}</h1>
-            </div>
-        )
-    }
+    return (
+        <div className="todo-list">
+            {todoItems}
+        </div>
+    )
 }
 
 export default App

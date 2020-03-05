@@ -1,4 +1,5 @@
-const todosData = [{
+const todosData = [
+    {
         id: 1,
         text: "Take out the trash",
         completed: true
@@ -18,8 +19,11 @@ const todosData = [{
         text: "Mow lawn",
         completed: true
     },
-
-
+    {
+        id: 5,
+        text: "Catch up on Arrested Development",
+        completed: false
+    }
 ]
 
 export default todosData
