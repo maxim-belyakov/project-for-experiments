@@ -6,8 +6,6 @@ Eventually we'll want to be able to modify the data, which will only happen if w
 Challenge: Change the <App /> component into a stateful class component and load the imported `todosData` into state.
 */
 
-// test ssh keys
-
 import React from "react"
 import TodoItem from "./TodoItem"
 import todosData from "./todosData"
