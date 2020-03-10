@@ -49,7 +49,7 @@ class App extends React.Component {
             <div className="todo-list">
                 {todoItems}
             </div>
-        )    
+        )
     }
 }
 
