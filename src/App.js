@@ -1,4 +1,5 @@
 // https://scrimba.com/g/greacthooks
+// Uncaught Invariant Violation: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.
 
 import React from "react"
 import randomcolor from "randomcolor"
@@ -21,9 +22,11 @@ class App extends React.Component {
         })
     }
     
-    componentDidUpdate() {
-        const newColor = randomcolor()
-        this.setState({color: newColor})
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.count !== this.state.count) {
+            const newColor = randomcolor()
+            this.setState({color: newColor})
+        }
     }
     
     render() {
