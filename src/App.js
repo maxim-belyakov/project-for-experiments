@@ -16,7 +16,7 @@ class App extends React.Component {
         super()
         
         this.state = {
-            loginIn: false            
+            isLoginIn: false            
         }
         
         this.handleClick = this.handleClick.bind(this)
@@ -25,22 +25,15 @@ class App extends React.Component {
     handleClick () {
         this.setState(prevState => {
             return {
-                loginIn: !prevState.loginIn
+                isLoginIn: !prevState.isLoginIn
             }
         })
     }
     
-    render () {        
-        let login
-        let side
-        
-        if (this.state.loginIn) {
-            login = "Login In"
-            side = "light"
-        } else {
-            login = "Login Out"
-            side = "dark"
-        }
+    render () {
+
+        let login = this.state.isLoginIn ? "Log Out" : "Log In"
+        let side = this.state.isLoginIn ? "light" : "dark"
         
         return (
             <div>
