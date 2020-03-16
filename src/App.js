@@ -4,23 +4,25 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            firstName: ""
+            firstName: "",
+            lastName: ""
         }
-
         this.handleChange = this.handleChange.bind(this)
     }
     
     handleChange(event) {
         this.setState({
-            firstName: event.target.value
+            [event.target.name]: event.target.value
         })
     }
     
     render() {
         return (
             <form>
-                <input type="text" placeholder="First Name" onChange={this.handleChange} />
-                <h1>{this.state.firstName}</h1>
+                <input type="text" name="firstName" placeholder="First Name" onChange={this.handleChange} />
+                <br />
+                <input type="text" name="lastName" placeholder="Last Name" onChange={this.handleChange} />
+                <h1>{this.state.firstName} {this.state.lastName}</h1>
             </form>
         )
     }
