@@ -6,7 +6,8 @@ class App extends Component {
         this.state = {
             firstName: "",
             lastName: "",
-            isFriendly: false
+            isFriendly: false,
+            gender: ""
         }
         this.handleChange = this.handleChange.bind(this)
     }
@@ -46,8 +47,13 @@ class App extends Component {
                      */
                 }
                 
-                <textarea value={"Some default value"}/>
+                <textarea 
+                    value={"Some default value"}
+                    onChange={this.handleChange}
+                />
+                
                 <br />
+                
                 <label>
                     <input 
                         type="checkbox" 
@@ -56,11 +62,30 @@ class App extends Component {
                         onChange={this.handleChange}
                     /> Is friendly?
                 </label>
-                
-                
+                <br />
+                <label>
+                    <input 
+                        type="radio" 
+                        name="gender"
+                        value="male"
+                        checked={this.state.gender === "male"}
+                        onChange={this.handleChange}
+                    /> Male
+                </label>
+                <br />
+                <label>
+                    <input 
+                        type="radio" 
+                        name="gender"
+                        value="female"
+                        checked={this.state.gender === "female"}
+                        onChange={this.handleChange}
+                    /> Female
+                </label>
                 
                 
                 <h1>{this.state.firstName} {this.state.lastName}</h1>
+                <h2>You are a {this.state.gender}</h2>
             </form>
         )
     }
