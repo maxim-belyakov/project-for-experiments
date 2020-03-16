@@ -5,16 +5,15 @@ class App extends Component {
         super()
         this.state = {
             firstName: "",
-            lastName: ""
+            lastName: "",
+            isFriendly: false
         }
         this.handleChange = this.handleChange.bind(this)
     }
     
     handleChange(event) {
-        const {name, value} = event.target
-        this.setState({
-            [name]: value
-        })
+        const {name, value, type, checked} = event.target
+        type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
     }
     
     render() {
@@ -35,6 +34,32 @@ class App extends Component {
                     placeholder="Last Name" 
                     onChange={this.handleChange} 
                 />
+                
+                {
+                    /**
+                     * Other useful form elements:
+                     * 
+                     *  <textarea /> element
+                     *  <input type="checkbox" />
+                     *  <input type="radio" />
+                     *  <select> and <option> elements
+                     */
+                }
+                
+                <textarea value={"Some default value"}/>
+                <br />
+                <label>
+                    <input 
+                        type="checkbox" 
+                        name="isFriendly"
+                        checked={this.state.isFriendly}
+                        onChange={this.handleChange}
+                    /> Is friendly?
+                </label>
+                
+                
+                
+                
                 <h1>{this.state.firstName} {this.state.lastName}</h1>
             </form>
         )
