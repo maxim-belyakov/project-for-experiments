@@ -1,24 +1,38 @@
-import React from "react"
-
-import Header from "./components/meme/Header"
-import MemeGenerator from "./components/meme/MemeGenerator"
-
-import "./css/meme.css"
-
-/**
- * Create 2 new components - Header and MemeGenerator
- * Header will only display things
- * MemeGenerator will be calling to an API and holding on to data
- * Each should be in their own file of the same name
- */
+import React, { useState } from "react"
 
 function App() {
+    const [ answer ] = useState("Yes")
+    console.log(answer)
+    
+    const person = {
+        name: "Joe",
+        age: 42
+    }
+    
+    const { name, age } = person
+    
     return (
         <div>
-            <Header />
-            <MemeGenerator />
+            <h1>Is state important to know? {answer}</h1>
         </div>
     )
 }
+
+// class App extends React.Component {
+//     constructor() {
+//         super()
+//         this.state = {
+//             answer: "Yes"
+//         }
+//     }
+    
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Is state important to know? {this.state.answer}</h1>
+//             </div>
+//         )
+//     }
+// }
 
 export default App
