@@ -13,9 +13,14 @@ class App extends Component {
     }
     
     handleChange(event) {
-        const {name, value, type, checked} = event.target
-        type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
-    }
+        const target = event.target;
+        const value = target.name === 'isFriendly' ? target.checked : target.value;
+        const name = target.name;
+    
+        this.setState({
+          [name]: value
+        });
+      }
     
     render() {
         return (
