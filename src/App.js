@@ -15,6 +15,9 @@ function App() {
     
     useEffect(() => {
         setColor(randomcolor())
+        setInterval(() => {
+            console.log("Interval!")
+        }, 1000)
     }, [count])
     
     return (
