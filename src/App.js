@@ -6,10 +6,12 @@ function App() {
     const [color, setColor] = useState("")
     
     useEffect(() => {
-        // setInterval(() => {
-        //     setCount(prevCount => prevCount + 1)
-        // }, 1000)
-        
+        setInterval(() => {
+            // setCount(prevCount => prevCount + 1)
+        }, 1000)
+    }, [])
+    
+    useEffect(() => {
         setColor(randomcolor())
     }, [count])
     
