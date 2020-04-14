@@ -1,26 +1,29 @@
-import React, {useState, useEffect} from "react"
-import randomcolor from "randomcolor"
-
-function App() {
-    const [count, setCount] = useState(0)
-    const [color, setColor] = useState("")
-    
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            // setCount(prevCount => prevCount + 1)
-        }, 1000)
-        return () => clearInterval(intervalId)
-    }, [])
-    
-    useEffect(() => {
-        setColor(randomcolor())
-    }, [count])
-    
-    return (
-        <div>
-            <h1 style={{color: color}}>{count}</h1>
-        </div>
-    )
+const redux = require("redux")
+const initialState = {
+    count: 0
 }
 
-export default App
+function reducer(state=initialState, action) {
+    switch(action.type) {
+        case "INCREMENT":
+            return {
+                count: state.count + 1
+            }
+        case "DECREMENT":
+            return {
+                count: state.count - 1
+            }
+        default:
+            return state
+    }
+}
+
+const store = redux.createStore(reducer)
+
+store.subscribe(() => {
+    console.log(store.getState())
+})
+
+store.dispatch({type: "INCREMENT"})
+store.dispatch({type: "INCREMENT"})
+store.dispatch({type: "DECREMENT"})
