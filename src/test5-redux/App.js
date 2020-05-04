@@ -8,8 +8,8 @@ function App(props) {
     return (
         <div className="App">
             <h1>{props.count}</h1>
-            <button onClick={props.oranges}>-</button>
-            <button onClick={props.apples}>+</button>
+            <button onClick={props.decrement}>-</button>
+            <button onClick={props.increment}>+</button>
         </div>
     )
 }
@@ -26,8 +26,9 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-    apples: increment,
-    oranges: decrement
+    increment,
+    decrement
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
