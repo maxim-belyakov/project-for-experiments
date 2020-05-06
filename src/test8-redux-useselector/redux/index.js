@@ -14,20 +14,49 @@ export function increment() {
     }
 }
 
+export function incrementSW() {
+    return (dispatch, getState) => {
+        
+        const number = getState().count
+        const baseUrl = "https://swapi.dev/api/people"
+        fetch(`${baseUrl}/${number}`)
+            .then(res => res.json())
+            .then(res => {
+                dispatch({ 
+                    type: "INCREMENT",
+                    payload: res
+                })
+                console.log(res)
+            })
+    }
+}
+
 export function decrement() {
     return {
         type: "DECREMENT"
     }
 }
 
-function reducer(count = 0, action) {
+const initialState = {
+    count: 0,
+    SWData: null
+}
+
+function reducer(state = initialState, action) {
     switch(action.type) {
         case "INCREMENT":
-            return count + 1
+            return {
+                ...state,
+                count: state.count + 1,
+                SWData: action.payload
+            }
         case "DECREMENT":
-            return count - 1
+            return {
+                ...state,
+                count: state.count - 1,
+            }
         default:
-            return count
+            return state
     }
 }
 

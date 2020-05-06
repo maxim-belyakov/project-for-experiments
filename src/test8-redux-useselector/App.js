@@ -2,17 +2,17 @@ import React from "react"
 import "./App.css"
 
 import {useSelector, useDispatch} from "react-redux"
-import {increment, decrement} from "./redux"
+import {increment, incrementSW, decrement} from "./redux"
 
 function App(props) {
-    const count = useSelector(state => state)
+    const state = useSelector(state => state)
     const dispatch = useDispatch()
 
     return (
         <div className="App">
-            <h1>{count}</h1>
+            <h1>{state.count}</h1>
             <button onClick={() => dispatch(decrement())}>-</button>
-            <button onClick={() => dispatch(increment())}>+</button>
+            <button onClick={() => dispatch(incrementSW())}>+</button>
         </div>
     )
 }
