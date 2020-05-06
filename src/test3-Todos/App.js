@@ -1,8 +1,8 @@
 import React from 'react';
 import './css/App.css';
 
-import todosData from "./myJSON/todosData.js"
-import TodoItem from "./TodoItem.js"
+import todosData from "./myJSON/todosData"
+import TodoItem from "./TodoItem"
 
 class App extends React.Component {
   constructor() {
@@ -11,39 +11,32 @@ class App extends React.Component {
           todos: todosData,
           count: 0
       }
-      this.handleClick = this.handleClick.bind(this)
+      this.handleChange = this.handleChange.bind(this)
+      this.handleEncrement = this.handleEncrement.bind(this)
   }
 
-  handleClick(id) {
-    // this.setState(prevState => {
-    //   return {
-    //       count: prevState.count + 1
-    //   }
-    // })
-
-    // console.log("I'm working!, count", this.state.count)
-    
-    // this.setState(prevState => {
-    //   const updatedTodos = prevState.todos
-    //   updatedTodos[id - 1].completed = !prevState.todos[id - 1].completed
-    //   return { todos: updatedTodos }
-    // })
-    // console.log(id)
-    // console.log(this.state.todos[id-1])
-
-
+  handleChange(id) {
     this.setState(prevState => {
-      const updatedTodos = prevState.todos.map(todo => {
-        if (todo.id === id) {
-            todo.completed = !todo.completed
+        const updatedTodos = prevState.todos.map(todo => {
+            if (todo.id === id) {
+                return {
+                    ...todo,
+                    completed: !todo.completed
+                }
+            }
+            return todo
+        })
+        console.log(prevState.todos)
+        console.log(updatedTodos)
+        return {
+            todos: updatedTodos
         }
-        return todo
-      })
-      return {
-          todos: updatedTodos
-      }
     })
-}
+  }
+
+  handleEncrement() {
+    this.setState(prevState => { return { count: prevState.count + 1 } })
+  }
 
   render() {
     const todoItems = this.state.todos.map(
@@ -51,16 +44,16 @@ class App extends React.Component {
     )
     
     return (
-      <>
+      <div className="App">
         <div className="todo-list">
             {todoItems}
         </div>
 
         <div>
           <h1>{this.state.count}</h1>
-          <button onClick={this.handleClick}>Change!</button>
+          <button onClick={this.handleEncrement}>Change!</button>
         </div>
-      </>
+      </div>
     )    
   }
 }

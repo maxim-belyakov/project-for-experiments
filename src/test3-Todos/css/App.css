@@ -2,6 +2,10 @@ body {
     background-color: whitesmoke;
 }
 
+.App {
+    text-align: center;
+}
+
 .todo-list {
     background-color: white;
     margin: auto;
