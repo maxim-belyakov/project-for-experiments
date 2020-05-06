@@ -7,14 +7,14 @@ import { Provider } from 'react-redux';
 
 // import App from './test2-meme/App';
 
-import App from './test3-Todos/App';
+// import App from './test3-Todos/App';
 
 // import App from './test4-redux/App';
 
 // import App from './test5-redux/App';
 import store from "./test5-redux/redux";
 
-// import App from './test6-refs/App';
+import App from './test6-refs/App';
 
 ReactDOM.render(
   <React.StrictMode>

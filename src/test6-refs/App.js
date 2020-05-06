@@ -1,15 +1,19 @@
 import React from "react"
 import "./App.css"
 
-function App(props) {    
+export default class App extends React.Component {
+  componentDidMount() {
+    this.textInput.focus();
+  }
+
+  render () {
     return (
         <div className="App">
-            <CustomTextInput />
+            <CustomTextInput ref={input => this.textInput = input} />
         </div>
     )
+  }
 }
-
-export default App
 
 
 class CustomTextInput extends React.Component {
@@ -24,13 +28,14 @@ class CustomTextInput extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     // Использование обратного вызова `ref` для сохранения ссылки на поле текстового ввода (input)
     // как элемента DOM в this.textInput.
     return (
       <div>
         <input
           type="text"
-          ref={(input) => { this.textInput = input; }} />
+          ref={input => this.textInput = input} />
         <input
           type="button"
           value="Focus the text input"
