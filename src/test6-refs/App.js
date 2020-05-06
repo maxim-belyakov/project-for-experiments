@@ -20,11 +20,12 @@ class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
     this.focus = this.focus.bind(this);
+    this.inputRef = React.createRef();
   }
 
   focus() {
     // Установка фокуса на поле текстового ввода (input) с явным использованием исходного API DOM
-    this.textInput.focus();
+    this.inputRef.focus();
   }
 
   render() {
@@ -35,7 +36,7 @@ class CustomTextInput extends React.Component {
       <div>
         <input
           type="text"
-          ref={input => this.textInput = input} />
+          ref={input => this.inputRef = input} />
         <input
           type="button"
           value="Focus the text input"
