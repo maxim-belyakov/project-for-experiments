@@ -29,7 +29,9 @@ class CustomTextInput extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+
+    const node = this.inputRef.current;
+    console.log('node', node)
     // Использование обратного вызова `ref` для сохранения ссылки на поле текстового ввода (input)
     // как элемента DOM в this.textInput.
     return (
