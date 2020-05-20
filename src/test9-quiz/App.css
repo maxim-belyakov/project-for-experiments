@@ -37,3 +37,8 @@
     transform: translateY(0px)
   }
 }
+
+.quiz-inner {
+  display: inline-block;
+  padding: 0 70px;
+}
