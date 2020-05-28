@@ -19,11 +19,14 @@ import { Provider } from 'react-redux';
 // import App from './test7-refs/App';
 
 // import App from './test8-redux-useselector/App';
-import store from "./test8-redux-useselector/redux";
+// import store from "./test8-redux-useselector/redux";
 
 // import App from './test9-quiz/App';
 
-import App from './test10-quiz/App';
+// import App from './test10-quiz/App';
+
+import App from './test11-redux-news-app/App';
+import store from "./test11-redux-news-app/redux";
 
 ReactDOM.render(
   <React.StrictMode>
