@@ -25,8 +25,11 @@ import { Provider } from 'react-redux';
 
 // import App from './test10-quiz/App';
 
-import App from './test11-redux-news-app/App';
+// import App from './test11-redux-news-app/App';
 import store from "./test11-redux-news-app/redux";
+
+
+import App from './test12/App';
 
 ReactDOM.render(
   <React.StrictMode>
