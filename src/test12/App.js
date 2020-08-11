@@ -30,7 +30,7 @@ const BugsList = () => {
   return useObserver(() => (
     <ul>
       {store.bugs.map(bug => (
-        <li key={bug}>{bug}</li>
+        <li key={bug}>---{bug}---</li>
       ))}
     </ul>
   ));
