@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 
 // import App from './test3-Todos/App';
 
-// import App from './test4-redux/App';
+import App from './test4-redux/App';
 
 // import App from './test5-redux/App';
 // import store from "./test5-redux/redux";
@@ -29,7 +29,7 @@ import { Provider } from 'react-redux';
 import store from "./test11-redux-news-app/redux";
 
 
-import App from './test12/App';
+// import App from './test12/App';
 
 ReactDOM.render(
   <React.StrictMode>
